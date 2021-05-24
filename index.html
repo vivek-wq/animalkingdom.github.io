@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <title>Animal Kingdom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main__sec">
+
+
+        <div class="sec">
+            <div class="menuBar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="container1">
+                <div class="videoBx">
+                    <div class="video active" id="animal1">
+                        <video muted autoplay loop src="./videos/elephant.mp4"></video>
+                    </div>
+                    <div class="video" id="animal2">
+                        <video muted autoplay loop src="./videos/lion2.mp4"></video>
+                    </div>
+                    <div class="video" id="animal3">
+                        <video muted autoplay loop src="./videos/giraffe.mp4"></video>
+                    </div>
+                </div>
+            </div>
+            <div class="navBar">
+                <div class="nav__menuIcon"></div>
+                <div class="nav__link">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav__logo">
+                    <h2>Animal Kingdom</h2>
+                </div>
+            </div>
+            <div class="container2">
+                <div class="aboutBx">
+                    <div class="about active" id="about1">
+                        <h1>"the only good cage <br>
+                            is no cage."</h1>
+                    </div>
+                    <div class="about" id="about2">
+                        <h1>"animals have few rights<br>
+                            but they have every right to be here "</h1>
+                    </div>
+                    <div class="about" id="about3">
+                        <h1>"having respect for animals <br>
+                            makes us better human."
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container3">
+            <div class="btn active" data-id="animal1" data-about-id="about1">
+                <img src="./images/elephant1.jpg" alt="">
+                <div class="text">
+                    <h2>elephant</h2>
+                </div>
+            </div>
+            <div class="btn" data-id="animal2" data-about-id="about2">
+                <img src="./images/lion1.jpg" alt="">
+                <div class="text">
+                    <h2>lion</h2>
+                </div>
+            </div>
+            <div class="btn" data-id="animal3" data-about-id="about3">
+                <img src="./images/giraffe1.jpg" alt="">
+                <div class="text">
+                    <h2>giraffe</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var btn = document.querySelectorAll('.btn');
+        var video = document.querySelectorAll('.video');
+
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].addEventListener('click', function () {
+                for (var i = 0; i < video.length; i++) {
+                    video[i].className = 'video';
+                }
+                document.getElementById(this.dataset.id).className = 'video active';
+
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].className = 'btn'
+                }
+                this.className = 'btn active';
+            })
+        }
+
+        var about = document.querySelectorAll('.about')
+
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].addEventListener('click', function () {
+                for (var i = 0; i < about.length; i++) {
+                    about[i].className = 'about';
+                }
+                document.getElementById(this.dataset.aboutId).className = 'about active';
+
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].className = 'btn'
+                }
+                this.className = 'btn active';
+            })
+        }
+
+    </script>
+    <script>
+        var nav__menuIcon = document.querySelector('.nav__menuIcon');
+        var menuBar = document.querySelector('.menuBar');
+
+        nav__menuIcon.addEventListener('click', function () {
+            menuBar.classList.toggle('active');
+            nav__menuIcon.classList.toggle('active');
+        })
+    </script>
+</body>
+
+</html>
